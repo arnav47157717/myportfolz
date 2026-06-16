@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 26.2.3.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		pre { font-size: 10pt; font-family: "Liberation Mono", monospace; background: transparent }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>-&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;/&gt;
+  &lt;title&gt;Tyrone Brooks — UX/UI Designer&lt;/title&gt;
+  &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap&quot; rel=&quot;stylesheet&quot;/&gt;
+  &lt;style&gt;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #141414;
+      --surface2: #1a1a1a;
+      --border: rgba(255,255,255,0.08);
+      --gold: #f5c518;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.45);
+      --pill-bg: rgba(255,255,255,0.06);
+      --pill-active: #ffffff;
+      --radius-lg: 20px;
+      --radius-pill: 999px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 80px;
+    }
+
+    /* ── CARD SHELL ── */
+    .card {
+      width: 100%;
+      max-width: 860px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 40px 120px rgba(0,0,0,0.7);
+    }
+
+    /* ── NAV BAR ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: rgba(0,0,0,0.3);
+      backdrop-filter: blur(12px);
+    }
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+    .status-dot {
+      width: 8px; height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #4ade80;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: #000;
+      font-size: 12px;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.2s;
+    }
+    .btn-gold:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px 36px 36px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 40%, rgba(180,80,20,0.55) 0%, rgba(100,30,5,0.3) 45%, transparent 70%),
+                  linear-gradient(180deg, #1a0d00 0%, #0d0d0d 100%);
+    }
+    /* Silhouette figure */
+    .hero-figure {
+      position: absolute;
+      right: 48px;
+      bottom: 0;
+      width: 220px;
+      height: 300px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .figure-svg {
+      width: 100%;
+      height: 100%;
+      opacity: 0.85;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .hero-name {
+      font-size: clamp(48px, 7vw, 80px);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 28px;
+      margin-bottom: 28px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .contact-item svg { opacity: 0.6; flex-shrink: 0; }
+
+    /* ── TAB BAR ── */
+    .tab-bar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 4px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 4px;
+      width: fit-content;
+    }
+    .tab {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      background: transparent;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.active {
+      background: var(--text);
+      color: #000;
+      font-weight: 700;
+    }
+    .tab svg { width: 13px; height: 13px; }
+
+    /* ── SECTIONS ── */
+    .section { display: none; padding: 36px; }
+    .section.active { display: block; }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.75);
+      max-width: 600px;
+    }
+    .summary-highlights {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .highlight-chip {
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* Experience */
+    .exp-item { margin-bottom: 32px; }
+    .exp-item:last-child { margin-bottom: 0; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 4px;
+    }
+    .exp-company { font-size: 15px; font-weight: 700; }
+    .exp-date { font-size: 12px; color: var(--muted); white-space: nowrap; }
+    .exp-role { font-size: 13px; color: var(--gold); font-weight: 500; margin-bottom: 8px; }
+    .exp-desc { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.6); }
+    .exp-achievement {
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+    }
+    .exp-achievement span { color: var(--gold); }
+    .divider { height: 1px; background: var(--border); margin: 28px 0; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    @media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; } }
+
+    .skill-group-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .tool-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .tool-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .tool-icon-circle {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .tool-icon span { font-size: 10px; color: var(--muted); }
+
+    .lang-item { margin-bottom: 14px; }
+    .lang-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 6px;
+    }
+    .lang-bar {
+      height: 3px;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .lang-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 999px;
+      transition: width 0.8s ease;
+    }
+
+    .edu-item { margin-bottom: 16px; display: flex; gap: 10px; }
+    .edu-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .edu-name { font-size: 13px; font-weight: 600; }
+    .edu-sub { font-size: 11px; color: var(--gold); margin-top: 2px; }
+    .edu-date { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    /* Links / Projects */
+    .projects-grid { display: grid; gap: 20px; }
+    .project-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .project-card:hover { border-color: rgba(245,197,24,0.3); }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .project-name { font-size: 20px; font-weight: 800; }
+    .project-tag { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
+    .project-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin: 12px 0 4px;
+    }
+    .project-desc { font-size: 13px; line-height: 1.7; color: rgba(255,255,255,0.6); }
+    .project-metric { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; }
+    .project-metric strong { color: var(--gold); }
+    .arrow-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 32px; height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--muted);
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .arrow-btn:hover { background: var(--gold); color: #000; border-color: var(--gold); }
+
+    /* Links section */
+    .links-list { display: flex; flex-direction: column; gap: 12px; }
+    .link-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .link-item:hover { border-color: rgba(245,197,24,0.3); }
+    .link-name { font-size: 14px; font-weight: 600; color: var(--text); }
+    .link-url { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .link-icon { color: var(--muted); }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;card&quot;&gt;
+
+  &lt;!-- NAV --&gt;
+  &lt;div class=&quot;nav&quot;&gt;
+    &lt;div class=&quot;status&quot;&gt;
+      &lt;span class=&quot;status-dot&quot;&gt;&lt;/span&gt;
+      Open to work
+    &lt;/div&gt;
+    &lt;button class=&quot;btn-gold&quot; onclick=&quot;downloadCV()&quot;&gt;Download CV&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;!-- HERO --&gt;
+  &lt;div class=&quot;hero&quot;&gt;
+    &lt;div class=&quot;hero-bg&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- Silhouette SVG --&gt;
+    &lt;div class=&quot;hero-figure&quot;&gt;
+      &lt;svg class=&quot;figure-svg&quot; viewBox=&quot;0 0 220 300&quot; fill=&quot;none&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+        &lt;defs&gt;
+          &lt;radialGradient id=&quot;glow&quot; cx=&quot;50%&quot; cy=&quot;30%&quot; r=&quot;60%&quot;&gt;
+            &lt;stop offset=&quot;0%&quot; stop-color=&quot;#c85a10&quot; stop-opacity=&quot;0.8&quot;/&gt;
+            &lt;stop offset=&quot;100%&quot; stop-color=&quot;#3a1000&quot; stop-opacity=&quot;0&quot;/&gt;
+          &lt;/radialGradient&gt;
+        &lt;/defs&gt;
+        &lt;!-- ambient glow --&gt;
+        &lt;ellipse cx=&quot;110&quot; cy=&quot;80&quot; rx=&quot;90&quot; ry=&quot;120&quot; fill=&quot;url(#glow)&quot; opacity=&quot;0.6&quot;/&gt;
+        &lt;!-- body silhouette --&gt;
+        &lt;path d=&quot;M80 300 L80 200 Q78 180 72 165 Q60 140 58 120 Q54 90 70 75 Q80 55 110 50 Q140 45 150 65 Q162 85 158 115 Q155 140 145 163 Q138 180 138 200 L140 300 Z&quot; fill=&quot;#1a0900&quot; opacity=&quot;0.9&quot;/&gt;
+        &lt;!-- head --&gt;
+        &lt;ellipse cx=&quot;110&quot; cy=&quot;45&quot; rx=&quot;28&quot; ry=&quot;32&quot; fill=&quot;#1a0900&quot; opacity=&quot;0.9&quot;/&gt;
+        &lt;!-- neck --&gt;
+        &lt;rect x=&quot;98&quot; y=&quot;70&quot; width=&quot;24&quot; height=&quot;20&quot; rx=&quot;5&quot; fill=&quot;#1a0900&quot; opacity=&quot;0.9&quot;/&gt;
+        &lt;!-- shoulder slope left --&gt;
+        &lt;path d=&quot;M80 160 Q55 155 42 175 L50 300 L80 300 Z&quot; fill=&quot;#1a0900&quot; opacity=&quot;0.85&quot;/&gt;
+        &lt;!-- shoulder slope right --&gt;
+        &lt;path d=&quot;M140 160 Q165 155 178 175 L170 300 L140 300 Z&quot; fill=&quot;#1a0900&quot; opacity=&quot;0.85&quot;/&gt;
+        &lt;!-- t-shirt crease lines subtle --&gt;
+        &lt;path d=&quot;M95 120 Q100 140 98 165&quot; stroke=&quot;rgba(0,0,0,0.3)&quot; stroke-width=&quot;1&quot; fill=&quot;none&quot;/&gt;
+        &lt;path d=&quot;M120 118 Q118 140 120 163&quot; stroke=&quot;rgba(0,0,0,0.3)&quot; stroke-width=&quot;1&quot; fill=&quot;none&quot;/&gt;
+      &lt;/svg&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;hero-content&quot;&gt;
+      &lt;div class=&quot;hero-eyebrow&quot;&gt;UX/UI Designer&lt;/div&gt;
+      &lt;h1 class=&quot;hero-name&quot;&gt;Tyrone&lt;br&gt;Brooks&lt;/h1&gt;
+      &lt;div class=&quot;hero-contacts&quot;&gt;
+        &lt;div class=&quot;contact-item&quot;&gt;
+          &lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;rect x=&quot;2&quot; y=&quot;4&quot; width=&quot;20&quot; height=&quot;16&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7&quot;/&gt;&lt;/svg&gt;
+          tyrone.brooks@gmail.com
+        &lt;/div&gt;
+        &lt;div class=&quot;contact-item&quot;&gt;
+          &lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;rect x=&quot;2&quot; y=&quot;2&quot; width=&quot;20&quot; height=&quot;20&quot; rx=&quot;5&quot;/&gt;&lt;path d=&quot;M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z&quot;/&gt;&lt;rect x=&quot;2&quot; y=&quot;9&quot; width=&quot;4&quot; height=&quot;12&quot;/&gt;&lt;circle cx=&quot;4&quot; cy=&quot;4&quot; r=&quot;2&quot;/&gt;&lt;/svg&gt;
+          linkedin.com/in/tyrone-brooks
+        &lt;/div&gt;
+        &lt;div class=&quot;contact-item&quot;&gt;
+          &lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;path d=&quot;M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3-8.59A2 2 0 0 1 3.12 1.5h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.08 6.08l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z&quot;/&gt;&lt;/svg&gt;
+          +1 404-555-9876
+        &lt;/div&gt;
+        &lt;div class=&quot;contact-item&quot;&gt;
+          &lt;svg width=&quot;13&quot; height=&quot;13&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;path d=&quot;M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;10&quot; r=&quot;3&quot;/&gt;&lt;/svg&gt;
+          Atlanta, US
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- TABS --&gt;
+      &lt;div class=&quot;tab-bar&quot; role=&quot;tablist&quot;&gt;
+        &lt;button class=&quot;tab active&quot; onclick=&quot;showSection('home', this)&quot; role=&quot;tab&quot;&gt;
+          &lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;path d=&quot;m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z&quot;/&gt;&lt;polyline points=&quot;9 22 9 12 15 12 15 22&quot;/&gt;&lt;/svg&gt;
+          Home
+        &lt;/button&gt;
+        &lt;button class=&quot;tab&quot; onclick=&quot;showSection('summary', this)&quot; role=&quot;tab&quot;&gt;
+          &lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;rect x=&quot;3&quot; y=&quot;3&quot; width=&quot;18&quot; height=&quot;18&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M3 9h18M9 21V9&quot;/&gt;&lt;/svg&gt;
+          Summary
+        &lt;/button&gt;
+        &lt;button class=&quot;tab&quot; onclick=&quot;showSection('experience', this)&quot; role=&quot;tab&quot;&gt;
+          &lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;/&gt;&lt;polyline points=&quot;14 2 14 8 20 8&quot;/&gt;&lt;/svg&gt;
+          Experience
+        &lt;/button&gt;
+        &lt;button class=&quot;tab&quot; onclick=&quot;showSection('skills', this)&quot; role=&quot;tab&quot;&gt;
+          &lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;polygon points=&quot;12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2&quot;/&gt;&lt;/svg&gt;
+          Skills
+        &lt;/button&gt;
+        &lt;button class=&quot;tab&quot; onclick=&quot;showSection('projects', this)&quot; role=&quot;tab&quot;&gt;
+          &lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;path d=&quot;m10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71&quot;/&gt;&lt;path d=&quot;m14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71&quot;/&gt;&lt;/svg&gt;
+          Links
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ── HOME ── --&gt;
+  &lt;div id=&quot;home&quot; class=&quot;section active&quot;&gt;
+    &lt;p class=&quot;section-title&quot;&gt;About Me&lt;/p&gt;
+    &lt;p class=&quot;summary-text&quot;&gt;
+      I'm a UX/UI Designer with 6+ years crafting digital experiences that people actually enjoy using. I specialize in turning complex problems into elegant, intuitive interfaces — from early-stage discovery through high-fidelity prototyping and developer handoff.
+    &lt;/p&gt;
+    &lt;div class=&quot;summary-highlights&quot;&gt;
+      &lt;span class=&quot;highlight-chip&quot;&gt;Product Design&lt;/span&gt;
+      &lt;span class=&quot;highlight-chip&quot;&gt;Design Systems&lt;/span&gt;
+      &lt;span class=&quot;highlight-chip&quot;&gt;User Research&lt;/span&gt;
+      &lt;span class=&quot;highlight-chip&quot;&gt;Prototyping&lt;/span&gt;
+      &lt;span class=&quot;highlight-chip&quot;&gt;Interaction Design&lt;/span&gt;
+      &lt;span class=&quot;highlight-chip&quot;&gt;Motion&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ── SUMMARY ── --&gt;
+  &lt;div id=&quot;summary&quot; class=&quot;section&quot;&gt;
+    &lt;p class=&quot;section-title&quot;&gt;Professional Summary&lt;/p&gt;
+    &lt;p class=&quot;summary-text&quot;&gt;
+      Senior UX/UI Designer with 6 years of experience building design systems and consumer-facing products at scale. Proven track record of increasing conversion and engagement through research-led design decisions. Comfortable working across the full product lifecycle — from 0-to-1 discovery to iterative improvement on mature products.
+    &lt;/p&gt;
+    &lt;br&gt;
+    &lt;p class=&quot;summary-text&quot;&gt;
+      I thrive in cross-functional teams, collaborating closely with PMs, engineers, and researchers to ship work that is both beautiful and measurably effective.
+    &lt;/p&gt;
+    &lt;div class=&quot;summary-highlights&quot; style=&quot;margin-top:28px;&quot;&gt;
+      &lt;span class=&quot;highlight-chip&quot;&gt;6+ Years Experience&lt;/span&gt;
+      &lt;span class=&quot;highlight-chip&quot;&gt;B2B &amp; B2C&lt;/span&gt;
+      &lt;span class=&quot;highlight-chip&quot;&gt;Mobile-First&lt;/span&gt;
+      &lt;span class=&quot;highlight-chip&quot;&gt;Accessibility&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ── EXPERIENCE ── --&gt;
+  &lt;div id=&quot;experience&quot; class=&quot;section&quot;&gt;
+    &lt;p class=&quot;section-title&quot;&gt;Work Experience&lt;/p&gt;
+
+    &lt;div class=&quot;exp-item&quot;&gt;
+      &lt;div class=&quot;exp-header&quot;&gt;
+        &lt;div class=&quot;exp-company&quot;&gt;Flowstate Inc.&lt;/div&gt;
+        &lt;div class=&quot;exp-date&quot;&gt;Jan 2022 – Present&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;exp-role&quot;&gt;Lead UX/UI Designer&lt;/div&gt;
+      &lt;div class=&quot;exp-desc&quot;&gt;Owned end-to-end design of the core web application, redesigning the online shopping experience for a mid-sized fashion brand. Focused on mobile-first design, seamless navigation, and interactive product displays with a robust filtering system.&lt;/div&gt;
+      &lt;div class=&quot;exp-achievement&quot;&gt;Improved conversion rates by &lt;span&gt;20% within three months&lt;/span&gt; post-launch.&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+
+    &lt;div class=&quot;exp-item&quot;&gt;
+      &lt;div class=&quot;exp-header&quot;&gt;
+        &lt;div class=&quot;exp-company&quot;&gt;Luma Creative Studio&lt;/div&gt;
+        &lt;div class=&quot;exp-date&quot;&gt;Mar 2020 – Dec 2021&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;exp-role&quot;&gt;UX Designer&lt;/div&gt;
+      &lt;div class=&quot;exp-desc&quot;&gt;Led discovery workshops and usability testing for 8 client products. Delivered wireframes, prototypes, and design systems. Reduced design-to-dev handoff friction by establishing a shared component library in Figma.&lt;/div&gt;
+      &lt;div class=&quot;exp-achievement&quot;&gt;Client NPS improved from &lt;span&gt;42 to 71&lt;/span&gt; over 18 months.&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;divider&quot;&gt;&lt;/div&gt;
+
+    &lt;div class=&quot;exp-item&quot;&gt;
+      &lt;div class=&quot;exp-header&quot;&gt;
+        &lt;div class=&quot;exp-company&quot;&gt;Orbital Health&lt;/div&gt;
+        &lt;div class=&quot;exp-date&quot;&gt;Jun 2018 – Feb 2020&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;exp-role&quot;&gt;UI Designer (Contract)&lt;/div&gt;
+      &lt;div class=&quot;exp-desc&quot;&gt;Designed patient-facing mobile app UI in collaboration with clinical teams. Balanced accessibility requirements (WCAG AA) with a warm, approachable visual language for a sensitive healthcare context.&lt;/div&gt;
+      &lt;div class=&quot;exp-achievement&quot;&gt;App reached &lt;span&gt;4.7★&lt;/span&gt; on App Store within first quarter.&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ── SKILLS ── --&gt;
+  &lt;div id=&quot;skills&quot; class=&quot;section&quot;&gt;
+    &lt;div class=&quot;skills-grid&quot;&gt;
+      &lt;div&gt;
+        &lt;p class=&quot;section-title&quot;&gt;Tools&lt;/p&gt;
+        &lt;div class=&quot;skill-group-title&quot;&gt;Design &amp; Prototyping&lt;/div&gt;
+        &lt;div class=&quot;tool-icons&quot;&gt;
+          &lt;div class=&quot;tool-icon&quot;&gt;
+            &lt;div class=&quot;tool-icon-circle&quot; style=&quot;background:linear-gradient(135deg,#0acf83,#1abcfe,#a259ff,#f24e1e)&quot;&gt;
+              &lt;svg width=&quot;20&quot; height=&quot;20&quot; viewBox=&quot;0 0 38 57&quot; fill=&quot;white&quot;&gt;&lt;path d=&quot;M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z&quot;/&gt;&lt;path d=&quot;M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 0 1-19 0z&quot;/&gt;&lt;path d=&quot;M19 0v19h9.5a9.5 9.5 0 0 0 0-19H19z&quot;/&gt;&lt;path d=&quot;M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z&quot;/&gt;&lt;path d=&quot;M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z&quot;/&gt;&lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span&gt;Figma&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tool-icon&quot;&gt;
+            &lt;div class=&quot;tool-icon-circle&quot; style=&quot;background:#001e36&quot;&gt;
+              &lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#31a8ff&quot;&gt;&lt;path d=&quot;M0 0h24v24H0z&quot; fill=&quot;none&quot;/&gt;&lt;path d=&quot;M14.5 2.1L20 7.5V22H4V2h10.5zM13 3H5v18h14V8.5L13 3zm1 1.5L17.5 8H14V4.5z&quot;/&gt;&lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span&gt;Ps&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tool-icon&quot;&gt;
+            &lt;div class=&quot;tool-icon-circle&quot; style=&quot;background:#300;&quot;&gt;
+              &lt;span style=&quot;color:#ff9a00;font-size:13px;font-weight:900;&quot;&gt;Ai&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;span&gt;Illustrator&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tool-icon&quot;&gt;
+            &lt;div class=&quot;tool-icon-circle&quot; style=&quot;background:#1d1d1d&quot;&gt;
+              &lt;span style=&quot;color:#fff;font-size:11px;font-weight:800;&quot;&gt;Sk&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;span&gt;Sketch&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class=&quot;skill-group-title&quot;&gt;3D &amp; Motion&lt;/div&gt;
+        &lt;div class=&quot;tool-icons&quot;&gt;
+          &lt;div class=&quot;tool-icon&quot;&gt;
+            &lt;div class=&quot;tool-icon-circle&quot; style=&quot;background:#1e1e2e&quot;&gt;
+              &lt;span style=&quot;color:#e87b35;font-size:11px;font-weight:800;&quot;&gt;Sp&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;span&gt;Spline&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tool-icon&quot;&gt;
+            &lt;div class=&quot;tool-icon-circle&quot; style=&quot;background:#1a1a2e&quot;&gt;
+              &lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;#e87d0d&quot;&gt;&lt;path d=&quot;M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z&quot;/&gt;&lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span&gt;Blender&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tool-icon&quot;&gt;
+            &lt;div class=&quot;tool-icon-circle&quot; style=&quot;background:#0f1117&quot;&gt;
+              &lt;svg width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;white&quot;&gt;&lt;polygon points=&quot;13,2 3,14 12,14 11,22 21,10 12,10&quot;/&gt;&lt;/svg&gt;
+            &lt;/div&gt;
+            &lt;span&gt;Framer&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;tool-icon&quot;&gt;
+            &lt;div class=&quot;tool-icon-circle&quot; style=&quot;background:#1a1a1a&quot;&gt;
+              &lt;span style=&quot;color:#f5c518;font-size:9px;font-weight:800;&quot;&gt;MJ&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;span&gt;Midjourney&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;p class=&quot;section-title&quot; style=&quot;margin-top:8px;&quot;&gt;Education &amp; Certificates&lt;/p&gt;
+        &lt;div class=&quot;edu-item&quot;&gt;
+          &lt;div class=&quot;edu-dot&quot;&gt;&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;edu-name&quot;&gt;Savannah College of Art and Design (SCAD)&lt;/div&gt;
+            &lt;div class=&quot;edu-sub&quot;&gt;Bachelor of Fine Arts in User Experience Design&lt;/div&gt;
+            &lt;div class=&quot;edu-date&quot;&gt;2016&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;edu-item&quot;&gt;
+          &lt;div class=&quot;edu-dot&quot;&gt;&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;edu-name&quot;&gt;Google UX Design Certificate&lt;/div&gt;
+            &lt;div class=&quot;edu-date&quot;&gt;August 2022&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div&gt;
+        &lt;p class=&quot;section-title&quot;&gt;Languages&lt;/p&gt;
+        &lt;div class=&quot;lang-item&quot;&gt;
+          &lt;div class=&quot;lang-label&quot;&gt;&lt;span&gt;English&lt;/span&gt;&lt;span&gt;Native&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;lang-bar&quot;&gt;&lt;div class=&quot;lang-fill&quot; style=&quot;width:100%&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;lang-item&quot;&gt;
+          &lt;div class=&quot;lang-label&quot;&gt;&lt;span&gt;Spanish&lt;/span&gt;&lt;span&gt;Intermediate&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;lang-bar&quot;&gt;&lt;div class=&quot;lang-fill&quot; style=&quot;width:65%&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;lang-item&quot;&gt;
+          &lt;div class=&quot;lang-label&quot;&gt;&lt;span&gt;French&lt;/span&gt;&lt;span&gt;Basic&lt;/span&gt;&lt;/div&gt;
+          &lt;div class=&quot;lang-bar&quot;&gt;&lt;div class=&quot;lang-fill&quot; style=&quot;width:25%&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;p class=&quot;section-title&quot; style=&quot;margin-top:28px;&quot;&gt;Soft Skills&lt;/p&gt;
+        &lt;div class=&quot;summary-highlights&quot; style=&quot;flex-direction:column; gap:8px;&quot;&gt;
+          &lt;span class=&quot;highlight-chip&quot; style=&quot;width:fit-content&quot;&gt;Strategic Thinking&lt;/span&gt;
+          &lt;span class=&quot;highlight-chip&quot; style=&quot;width:fit-content&quot;&gt;Cross-functional Collaboration&lt;/span&gt;
+          &lt;span class=&quot;highlight-chip&quot; style=&quot;width:fit-content&quot;&gt;User Research &amp; Testing&lt;/span&gt;
+          &lt;span class=&quot;highlight-chip&quot; style=&quot;width:fit-content&quot;&gt;Stakeholder Presentations&lt;/span&gt;
+          &lt;span class=&quot;highlight-chip&quot; style=&quot;width:fit-content&quot;&gt;Design Critique &amp; Mentorship&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ── PROJECTS / LINKS ── --&gt;
+  &lt;div id=&quot;projects&quot; class=&quot;section&quot;&gt;
+    &lt;p class=&quot;section-title&quot;&gt;Featured Projects&lt;/p&gt;
+    &lt;div class=&quot;projects-grid&quot;&gt;
+
+      &lt;div class=&quot;project-card&quot;&gt;
+        &lt;div class=&quot;project-header&quot;&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;project-name&quot;&gt;Flowstate&lt;/div&gt;
+            &lt;div class=&quot;project-tag&quot;&gt;Web Application&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;arrow-btn&quot;&gt;
+            &lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot;&gt;&lt;path d=&quot;M7 17 17 7M7 7h10v10&quot;/&gt;&lt;/svg&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;project-section-label&quot;&gt;About The Project&lt;/div&gt;
+        &lt;div class=&quot;project-desc&quot;&gt;Redesigned the online shopping experience for a mid-sized fashion brand. Focused on creating an elegant, mobile-first design with seamless navigation and interactive product displays. Integrated a robust filtering system for faster product discovery.&lt;/div&gt;
+        &lt;div class=&quot;project-section-label&quot;&gt;Achievements&lt;/div&gt;
+        &lt;div class=&quot;project-metric&quot;&gt;Improved conversion rates by &lt;strong&gt;20% within three months&lt;/strong&gt; post-launch.&lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;project-card&quot;&gt;
+        &lt;div class=&quot;project-header&quot;&gt;
+          &lt;div&gt;
+            &lt;div class=&quot;project-name&quot;&gt;Orbital Health&lt;/div&gt;
+            &lt;div class=&quot;project-tag&quot;&gt;Mobile App&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;arrow-btn&quot;&gt;
+            &lt;svg width=&quot;14&quot; height=&quot;14&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2.5&quot;&gt;&lt;path d=&quot;M7 17 17 7M7 7h10v10&quot;/&gt;&lt;/svg&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;project-section-label&quot;&gt;About The Project&lt;/div&gt;
+        &lt;div class=&quot;project-desc&quot;&gt;Patient-facing iOS and Android app designed for a telehealth provider. Balanced WCAG AA accessibility standards with a warm, calming aesthetic. Worked closely with clinical staff to validate flows.&lt;/div&gt;
+        &lt;div class=&quot;project-section-label&quot;&gt;Achievements&lt;/div&gt;
+        &lt;div class=&quot;project-metric&quot;&gt;Achieved &lt;strong&gt;4.7★ App Store rating&lt;/strong&gt; within the first quarter of launch.&lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;p class=&quot;section-title&quot; style=&quot;margin-top:36px;&quot;&gt;Online Presence&lt;/p&gt;
+    &lt;div class=&quot;links-list&quot;&gt;
+      &lt;a class=&quot;link-item&quot; href=&quot;#&quot; onclick=&quot;return false;&quot;&gt;
+        &lt;div&gt;
+          &lt;div class=&quot;link-name&quot;&gt;Portfolio&lt;/div&gt;
+          &lt;div class=&quot;link-url&quot;&gt;tyronebrooks.design&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;link-icon&quot;&gt;
+          &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;path d=&quot;M7 17 17 7M7 7h10v10&quot;/&gt;&lt;/svg&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;link-item&quot; href=&quot;#&quot; onclick=&quot;return false;&quot;&gt;
+        &lt;div&gt;
+          &lt;div class=&quot;link-name&quot;&gt;LinkedIn&lt;/div&gt;
+          &lt;div class=&quot;link-url&quot;&gt;linkedin.com/in/tyrone-brooks&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;link-icon&quot;&gt;
+          &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;path d=&quot;M7 17 17 7M7 7h10v10&quot;/&gt;&lt;/svg&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;link-item&quot; href=&quot;#&quot; onclick=&quot;return false;&quot;&gt;
+        &lt;div&gt;
+          &lt;div class=&quot;link-name&quot;&gt;Dribbble&lt;/div&gt;
+          &lt;div class=&quot;link-url&quot;&gt;dribbble.com/tyronebrooks&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;link-icon&quot;&gt;
+          &lt;svg width=&quot;16&quot; height=&quot;16&quot; viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot;&gt;&lt;path d=&quot;M7 17 17 7M7 7h10v10&quot;/&gt;&lt;/svg&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;&lt;!-- /card --&gt;
+
+&lt;script&gt;
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s =&gt; s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t =&gt; t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function downloadCV() {
+    // In a real implementation this would trigger a PDF download
+    alert('CV download would start here!');
+  }
+
+  // Animate language bars on tab switch
+  document.querySelectorAll('.tab').forEach(tab =&gt; {
+    tab.addEventListener('click', () =&gt; {
+      setTimeout(() =&gt; {
+        document.querySelectorAll('.lang-fill').forEach(bar =&gt; {
+          const w = bar.style.width;
+          bar.style.width = '0%';
+          requestAnimationFrame(() =&gt; {
+            setTimeout(() =&gt; bar.style.width = w, 50);
+          });
+        });
+      }, 10);
+    });
+  });
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>
